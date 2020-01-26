@@ -13,14 +13,12 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--video_file_path", help="video file path", type=str)
 parser.add_argument("--fps", help="Frames per second", type=int, default=60)
 parser.add_argument("--display_resolution", help="Resolution eg. 360x180", type=str, default='360x360')
-parser.add_argument("--monochrome", help="grayscale or not", type=bool, default=False)
 args = parser.parse_args()
  
 video_file_path = args.video_file_path
 fps = args.fps
 delay = 1 / fps
 display_resolution = res_input(args.display_resolution)
-monochrome = args.monochrome
 
 video = cv2.VideoCapture(video_file_path) # Read video
  
