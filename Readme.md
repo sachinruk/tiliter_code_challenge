@@ -20,7 +20,7 @@ python segment.py --v ./data/video_2.mp4
 ```
 
 ## Machine Learning
-Apologies for not using a script, but that would have ignored the intricacies of using fastai library.
+Apologies for not using a script, but that would have ignored the intricacies of using fastai library. See `MNIST.ipynb` and `Flowers.ipynb` for code.
 
 ### MNIST challenge
 - Accuracy of 98.66% on test set.
