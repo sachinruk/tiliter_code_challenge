@@ -1,0 +1,9 @@
+**/*.png
+**/*.jpg
+*checkpoint.ipynb
+.DS_Store
+*.pth
+*.pyc
+*.zip
+settings.json
+*.mp4
