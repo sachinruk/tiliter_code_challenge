@@ -11,11 +11,13 @@ SEC2MS = 1000
     
 parser = argparse.ArgumentParser()
 parser.add_argument("--video_file_path", help="video file path", type=str)
+parser.add_argument("--output", help="output file path", type=str, default=None)
 parser.add_argument("--fps", help="Frames per second", type=int, default=60)
 parser.add_argument("--display_resolution", help="Resolution eg. 360x180", type=str, default='360x360')
 args = parser.parse_args()
  
 video_file_path = args.video_file_path
+out = args.output if args.output is not None else video_file_path[:-4] + '_processed.mp4'
 fps = args.fps
 delay = 1 / fps
 display_resolution = res_input(args.display_resolution)
@@ -70,5 +72,11 @@ while ok or cursor < len(frameBuffer):
 video.release()
 cv2.destroyAllWindows()
 print(f'Process took {time.time() - start:.2f} seconds')
-    
-    
+
+vidWriter = cv2.VideoWriter(out, 
+                            cv2.VideoWriter_fourcc('M','J','P','G'), 
+                            fps, 
+                            display_resolution)
+for frame in fgBuffer:
+    vidWriter.write(frame)
+vidWriter.release()
