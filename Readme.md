@@ -6,7 +6,7 @@ Both these two tasks let a user play, pause and rewind and exit the player. When
 - b: back **one** frame
 - q: quit
 
-For segmentation I attempted to use opencv's `createBackgroundSubtractorMOG2` with poor results. Instead I converted the colour space to 'Lab' and looked at the difference after removing the 'L' (light intensity) channel. After that a simple threshold was used to classify as background and foreground. To smoothen the foreground mask I used opening and closing morphology operations.
+For segmentation I attempted to use opencv's `createBackgroundSubtractorMOG2` with poor results. Instead I converted the colour space to 'Lab' and looked at the difference after removing the 'L' (light intensity) channel. After that a simple threshold was used to classify as background and foreground. To smoothen the foreground mask I used opening and closing morphology operations. The algorithm is shown in `background.py`.
 
 ### Usage
 The parameters for these scripts are:
